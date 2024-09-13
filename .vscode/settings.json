@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "rogue like 2.sln"
+    "dotnet.defaultSolution": "nonameyet.sln"
 }
