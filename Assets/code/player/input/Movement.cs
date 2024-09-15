@@ -13,15 +13,26 @@ public class Movement : MonoBehaviour
 
     private Rigidbody2D _rigidbody;
     private Vector2 _movementInput;
+    private Vector2 _movement;
     private Vector2 _smoothedMovementInput;
     private Vector2 _movementInputSmoothVelocity;
     private const string _vertical = "horizontal";
     private const string _horizontal = "vertical";
+    private const string _lasthorizontal = "lasthorizontal";
+    private const string _lastvertical = "lastvertical";
     private Animator _animator;
 
     private void Update()
     {
-        //_animator.SetFloat(_horizontal)
+        _movement.Set(InputManager.Movement.x, InputManager.Movement.y);
+        _animator.SetFloat(_horizontal, _movement.x);
+        _animator.SetFloat(_vertical, _movement.y);
+
+        if (_movement != Vector2.zero)
+        {
+            _animator.SetFloat(_lasthorizontal, _movement.x);
+            _animator.SetFloat(_lastvertical, _movement.y);
+        }
     }
 
 
